@@ -1,23 +1,28 @@
 
 
 
-const ready = function(){
+const ready = function() {
+  // Loading
   const people = [
-    {firstname: "mkhhk", surname: "Okgui"},
-    {firstname: "dsfzef", surname: "Orththrthr"},
-    {firstname: "zefzefzf", surname: "Orthrthrthqdqzdzq"},
-    {firstname: "hrthrthrth", surname: "Oyukyukyukyuk"},
-
+    { firstname: "Landry", surname: "O'Hara", age:"45", height:"145"},
+    { firstname: "Sharon", surname: "O'Neil", age:"17", height:"175"},
+    { firstname: "Emerson", surname: "O'Connell", age:"33", height:"165"},
+    { firstname: "Roberto", surname: "O'Maley", age:"66", height:"181"}
   ];
-const tbody = document.querySelector("body");
+  //
+  const tbody = document.querySelector("tbody");
 
-for(i=0; i<people.length; i++){
-  let tr = document.createElement("tr");
-  tr.innerHTML = "<td>" + people[i].firstname + "</td>"
-  tbody.appendChild(tr);
+  let trContainer = document.createDocumentFragment();
 
+  for(let i = 0; i < people.length; i++) {
+    let tr = document.createElement("tr");
+    tr.innerHTML = `<td>${people[i].surname}</td><td>${people[i].firstname}</td>
+    <td>${people[i].age}</td><td>${people[i].height}</td>`;
+      trContainer.appendChild(tr);
+  }
+
+  tbody.appendChild(trContainer);
 
 }
-
 
 document.addEventListener("DOMContentLoaded", ready);
